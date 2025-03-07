@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'course_app.apps.CourseAppConfig',
     'trainee_app.apps.TraineeAppConfig'
-   
 ]
 
 MIDDLEWARE = [
@@ -121,7 +120,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "statics",
+    BASE_DIR / "static",
 ]
 
 # Default primary key field type
