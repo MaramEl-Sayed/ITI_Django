@@ -28,7 +28,7 @@ def register_view(request):
         else:
             messages.error(request, "Passwords do not match")
 
-    return render(request, "register.html")
+    return render(request, "register.html",)
 
 def logout_view(request):
     if request.method == "POST":
