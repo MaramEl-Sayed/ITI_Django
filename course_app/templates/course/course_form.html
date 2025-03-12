@@ -11,9 +11,19 @@
     <label for="description">Description:</label>
     <textarea name="description" required>{{ course.description|default:'' }}</textarea>
 
-   
     <button type="submit">Save</button>
 </form>
+
+{% if course %}
+<h3>Enrolled Trainees</h3>
+<ul>
+    {% for trainee in course.trainees.all %}
+        <li>{{ trainee.name }} ({{ trainee.email }}, Age: {{ trainee.age }})</li>
+    {% empty %}
+        <li>No trainees enrolled</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
 <a href="{% url 'course_list' %}">Back to List</a>
 

@@ -4,7 +4,7 @@ from .forms import TraineeForm
 
 # List all trainees
 def trainee_list(request):
-    trainees = Trainee.objects.all()
+    trainees = Trainee.objects.select_related("course").all() 
     return render(request, "trainee/trainee_list.html", {"trainees": trainees})
 
 # Add a new trainee

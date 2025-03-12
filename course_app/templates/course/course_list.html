@@ -3,16 +3,26 @@
 
 <h2>Course List</h2>
 <a href="{% url 'add_course' %}">Add Course</a>
-<table>
+<table border="1">
     <tr>
         <th>Name</th>
         <th>Description</th>
+        <th>Trainees</th>
         <th>Actions</th>
     </tr>
     {% for course in courses %}
     <tr>
         <td>{{ course.name }}</td>
         <td>{{ course.description }}</td>
+        <td>
+            <ul>
+                {% for trainee in course.trainees.all %}
+                    <li>{{ trainee.name }} ({{ trainee.email }}, Age: {{ trainee.age }})</li>
+                {% empty %}
+                    <li>No trainees enrolled</li>
+                {% endfor %}
+            </ul>
+        </td>
         <td>
             <a href="{% url 'update_course' course.id %}">Edit</a> 
             <a href="{% url 'delete_course' course.id %}">Delete</a> 

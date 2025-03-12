@@ -3,7 +3,7 @@ from .models import Course
 
 # List Courses
 def course_list(request):
-    courses = Course.objects.all()
+    courses = Course.objects.prefetch_related("trainees").all()  # Fetch courses with trainees
     return render(request, "course/course_list.html", {"courses": courses})
 
 # Add Course
