@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 # Ensure this path is correct:
-from ITI.views import login_view, register_view ,logout_view # Fix this import if necessary
+from ITI.views import login_view, register_view ,logout_view 
 
 urlpatterns = [
     path("admin/", admin.site.urls),

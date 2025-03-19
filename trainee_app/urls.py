@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import (TraineeListView,TraineeCreateView,TraineeUpdateView,TraineeDeleteView,TraineeDetailView)
+from .views import *
+from .api.views import *
 
 urlpatterns = [
     path("", TraineeListView.as_view(), name="trainee_list"),  
@@ -7,6 +8,8 @@ urlpatterns = [
     path("update/<int:pk>/", TraineeUpdateView.as_view(), name="update_trainee"),  
     path("delete/<int:pk>/", TraineeDeleteView.as_view(), name="delete_trainee"), 
     path("detail/<int:pk>/", TraineeDetailView.as_view(), name="trainee_detail"),  
+    path("list/", getAll),
+    path("list/<id>/",getbyid_update_delete)
 ]
 
 
